@@ -1,15 +1,14 @@
-var webpack = require('webpack');
-var path = require('path');
-
-var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
-var APP_DIR = path.resolve(__dirname, 'src/client/app');
-
-var config = {
-  entry: APP_DIR + '/index.jsx',
+module.exports = {
+  entry: './src/index.js',
   output: {
-    path: BUILD_DIR,
-    filename: 'bundle.js'
+    path: './compiled',
+    filename: 'app.bundle.js'
+  },
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    }]
   }
 }
-
-module.exports = config;
